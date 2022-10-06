@@ -48,10 +48,12 @@ $('.saveBtn').on('click', function () {
 renderSchedule();
 function renderSchedule(){
     var storedEvents = JSON.parse(localStorage.getItem("events"));
-    events = storedEvents
+    if(storedEvents !== null){
+        events = storedEvents;
+    }
     for (var i = 0; i < events.length; i++) {
-        var init = events[i];
-        $('.eventInput').eq(i).val(init)
+        var value = events[i];
+        $('.eventInput').eq(i).val(value)
     }
 }
 
