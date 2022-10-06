@@ -1,7 +1,8 @@
 # Work Day Scheduler
 
 ## Site Screenshot
-![](./assets/)
+![](./assets/images/work-day-schedule.gif)
+
 [Link to Deployed Website](https://ncguan.github.io/work-day-scheduler/)
 
 ## Technologies Used
