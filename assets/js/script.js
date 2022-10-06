@@ -39,7 +39,7 @@ for(var i = 0; i<9; i++){
 var events = new Array(9);
 $('.saveBtn').on('click', function () {
     var index = $('.saveBtn').index(this);
-    var input = $('.eventInput')
+    var input = $('.eventInput');
     var value = input.eq(index).val();
     events.splice(index,1,value);
     storeEvents();
@@ -54,6 +54,27 @@ function renderSchedule(){
     for (var i = 0; i < events.length; i++) {
         var value = events[i];
         $('.eventInput').eq(i).val(value)
+    }
+}
+
+for (var i = 0; i < events.length; i++) {
+    var time = $('.hour')
+    var displayTime = time.eq(i).text()
+    if (displayTime.includes("PM")==true && parseInt(displayTime)!==12){
+        var when = parseInt(displayTime)+12;
+    }
+    else{
+        var when = parseInt(displayTime);
+    }
+    
+    if(moment(today).format("H")==when){
+        $('.eventInput').eq(i).addClass('present');
+    }
+    else if(moment(today).format("H")>when){
+        $('.eventInput').eq(i).addClass('past');
+    }
+    else if(moment(today).format("H")<when){
+        $('.eventInput').eq(i).addClass('future');
     }
 }
 
